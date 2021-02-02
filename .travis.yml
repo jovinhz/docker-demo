@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jovinhz/docker-demo -f Dockerfile.dev
+
+script: 
+  - docker run -e CI=true jovinhz/docker-demo npm run test
